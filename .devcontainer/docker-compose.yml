@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  java:
+    container_name: java
+    # image: registry.redhat.io/rh-sso-7/sso76-openshift-rhel8:7.6
+    command: sleep infinity
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+        EXAMPLE: test
+    volumes:
+      - ..:/workspaces/keycloak
+
+  keycloak:
+    container_name: keycloak
+    # image: registry.redhat.io/rh-sso-7/sso76-openshift-rhel8:7.6
+    image: quay.io/keycloak/keycloak:18.0.2-legacy
+    restart: unless-stopped
+    environment:
+      EXAMPLE: test
+    volumes:
+      - ../deployments:/opt/jboss/keycloak/standalone/deployments
