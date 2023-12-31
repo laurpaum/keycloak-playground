@@ -19,6 +19,6 @@ services:
     image: quay.io/keycloak/keycloak:18.0.2-legacy
     restart: unless-stopped
     environment:
-      EXAMPLE: test
+      OTP_MOCK_ENABLED: true
     ports:
       - 8080:8080

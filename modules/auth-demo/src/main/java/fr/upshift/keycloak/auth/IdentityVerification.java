@@ -24,21 +24,14 @@ public class IdentityVerification implements Authenticator {
             context.attempted(); return;
         }
 
-        KeycloakSession session = context.getSession();
-
-        Set<String> ids = session.listProviderIds(OtpService.class);
-        log.infof("Got %d ids:", ids.size());
-        ids.stream().forEach(p -> log.infof(" %s", p));
-
-        Set<OtpService> providers = session.getAllProviders(OtpService.class);
-        log.infof("Got %d providers:", providers.size());
-        providers.stream().forEach(p -> log.infof(" %s", p.getClass()));
-
-        OtpService serviceOtp = session.getProvider(OtpService.class);
+        OtpService serviceOtp = context.getSession().getProvider(OtpService.class);
         if (serviceOtp == null) {
             log.warn("OTP service is null");
             context.attempted(); return;
         }
+
+        serviceOtp.generateCode(context);
+        serviceOtp.verifyCode(context, "999999");
 
         context.success();
     }

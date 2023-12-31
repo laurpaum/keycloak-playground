@@ -43,7 +43,7 @@ public class AssureServiceDefaultImplFactory implements AssureServiceFactory {
 
     @Override
     public int order() {
-        return 0;
+        return 5;
     }
 
 }

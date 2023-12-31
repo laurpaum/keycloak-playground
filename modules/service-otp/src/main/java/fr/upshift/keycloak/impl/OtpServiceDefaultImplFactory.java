@@ -43,7 +43,7 @@ public class OtpServiceDefaultImplFactory implements OtpServiceFactory {
 
     @Override
     public int order() {
-        return 0;
+        return 5;
     }
 
 }

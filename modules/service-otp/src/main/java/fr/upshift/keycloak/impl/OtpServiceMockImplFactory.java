@@ -45,7 +45,7 @@ public class OtpServiceMockImplFactory implements OtpServiceFactory {
 
     @Override
     public int order() {
-        return MOCK_ENABLED ? 10 : -10;
+        return MOCK_ENABLED ? 10 : 0;
     }
 
 }
