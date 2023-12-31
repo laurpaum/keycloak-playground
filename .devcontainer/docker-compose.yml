@@ -20,5 +20,5 @@ services:
     restart: unless-stopped
     environment:
       EXAMPLE: test
-    volumes:
-      - ../deployments:/opt/jboss/keycloak/standalone/deployments
+    ports:
+      - 8080:8080
