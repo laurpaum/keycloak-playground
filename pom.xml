@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.upshift.keycloak</groupId>
+    <artifactId>keycloak-extensions</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>modules/auth-demo</module>
+        <module>modules/service-assure</module>
+        <module>modules/service-otp</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <keycloak.version>18.0.2</keycloak.version>
+        <lombok.version>1.18.30</lombok.version>
+        <auto-service.version>1.0.1</auto-service.version>
+        <resteasy.version>3.15.6.Final</resteasy.version>
+        <version.wildfly.maven.plugin>1.2.2.Final</version.wildfly.maven.plugin>
+
+        <!-- <httpcomponents.version>4.5.13</httpcomponents.version> -->
+        <!-- <jackson.version>2.13.2</jackson.version> -->
+        <!-- <jackson-databind.version>2.13.2.2</jackson-databind.version> -->
+        <!-- <resteasy-jaxrs.version>4.7.5.Final</resteasy-jaxrs.version> -->
+        <!-- <jboss-servlet-api.version>2.0.0.Final</jboss-servlet-api.version> -->
+        <!-- <testcontainers-keycloak.version>2.1.2</testcontainers-keycloak.version> -->
+        <!-- <assertj-core.version>3.22.0</assertj-core.version> -->
+        <!-- <junit-jupiter.version>5.8.2</junit-jupiter.version> -->
+        <!-- <undertow-servlet.version>2.2.14.Final</undertow-servlet.version> -->
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>com.google.auto.service</groupId>
+                <artifactId>auto-service</artifactId>
+                <version>${auto-service.version}</version>
+                <scope>provided</scope>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-services</artifactId>
+                <version>${keycloak.version}</version>
+                <scope>provided</scope>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-server-spi</artifactId>
+                <version>${keycloak.version}</version>
+                <scope>provided</scope>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-server-spi-private</artifactId>
+                <version>${keycloak.version}</version>
+                <scope>provided</scope>
+                <optional>true</optional>
+            </dependency>
+            <!-- <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-themes</artifactId>
+                <version>${keycloak.version}</version>
+            </dependency> -->
+            <!-- <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-testsuite-utils</artifactId>
+                <version>${keycloak.version}</version>
+            </dependency> -->
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
