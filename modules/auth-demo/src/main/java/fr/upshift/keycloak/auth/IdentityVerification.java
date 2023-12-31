@@ -1,7 +1,5 @@
 package fr.upshift.keycloak.auth;
 
-import java.util.Set;
-
 import org.keycloak.authentication.AuthenticationFlowContext;
 import org.keycloak.authentication.Authenticator;
 import org.keycloak.models.KeycloakSession;
